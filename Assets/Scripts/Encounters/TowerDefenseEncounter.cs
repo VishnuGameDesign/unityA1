@@ -53,8 +53,6 @@ public class TowerDefenseEncounter : EncounterBase
             
             if(!_allTowersDestroyed) yield return new WaitForSeconds(5f);    
         }
-        foreach (var enemy in _enemyPrefabs) Destroy(enemy.gameObject , 2f);
-        ObjectiveTextEvent.Invoke("You Win!");
     }
 
     private bool AreAllTowersDestroyed()
@@ -63,7 +61,18 @@ public class TowerDefenseEncounter : EncounterBase
         {
             _allTowersDestroyed = true;
             ObjectiveTextEvent.Invoke("All towers destroyed");
+            AreAllEnemiesKilled();
         }
         return _allTowersDestroyed;
     }
+    
+    private void AreAllEnemiesKilled()
+    {
+        if (CurrentEnemies.Count <= 0)
+        {
+            ObjectiveTextEvent.Invoke("All enemies killed. You Win!");
+        }
+        else ObjectiveTextEvent.Invoke("Defeat remaining enemies");
+    }
+    
 }
