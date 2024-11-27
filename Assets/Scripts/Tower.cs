@@ -15,6 +15,7 @@ public class Tower : MonoBehaviour, IDamageable
         if(Health == null) Health = GetComponent<Health>();        
     }
 
+    // listen to health damage and death events 
     private void OnEnable()
     {
         Health.OnDamage.AddListener(Damage);
@@ -29,6 +30,7 @@ public class Tower : MonoBehaviour, IDamageable
 
     public void Damage(DamageInfo damageInfo) {} 
     
+    // destroy the tower OnDeath
     private void DestroyGameObject(DamageInfo damageInfo)
     {
         OnTowerDestroyed?.Invoke(this.gameObject);

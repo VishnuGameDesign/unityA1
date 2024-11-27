@@ -74,7 +74,7 @@ Material:
     - _DecalStencilRef: 16
     - _DecalStencilWriteMask: 16
     - _DrawOrder: 0
-    - _FlipbookIndex: 3.3452608e+38
+    - _FlipbookIndex: 1.0770792e+38
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

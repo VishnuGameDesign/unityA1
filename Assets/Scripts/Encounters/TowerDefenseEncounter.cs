@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Sirenix.Utilities;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TowerDefenseEncounter : EncounterBase
@@ -15,10 +12,11 @@ public class TowerDefenseEncounter : EncounterBase
     {
         base.StartEncounter();
         
-        ObjectiveTextEvent.Invoke("Destroy All Towers");
+        ObjectiveTextEvent.Invoke($"Destroy All Towers");
         StartCoroutine(EnemySpawnRoutine());
     }
 
+    // subscribe to when towers are destroyed event to remove towers from the list 
     private void OnEnable()
     {
         foreach (var tower in _towers)
@@ -35,6 +33,7 @@ public class TowerDefenseEncounter : EncounterBase
         }
     }
     
+    // find tower gameobject and remove from the list
     private void RemoveTower(GameObject towerObject)
     {
         _towers.Remove(_towers.Find(tower => tower.gameObject == towerObject));
@@ -42,6 +41,7 @@ public class TowerDefenseEncounter : EncounterBase
     
     private IEnumerator EnemySpawnRoutine()
     {
+        // spawns enemy until all 3 towers are destroyed
         while (!_allTowersDestroyed)
         {
             for (int i = 0; i < _enemyPrefabs.Length; i++)
@@ -51,28 +51,25 @@ public class TowerDefenseEncounter : EncounterBase
             }
             _allTowersDestroyed = AreAllTowersDestroyed();
             
+            // wait 5 seconds before the next wave
             if(!_allTowersDestroyed) yield return new WaitForSeconds(5f);    
         }
+        
+        ObjectiveTextEvent.Invoke($"Defeat remaining enemies. Enemies left: {CurrentEnemies.Count}");
+        while (CurrentEnemies.Count > 0) yield return null;
+
+        FinishEncounter();
+        ObjectiveTextEvent.Invoke("All enemies killed. You Win!");
     }
 
+    // check if all towers are destroyed 
     private bool AreAllTowersDestroyed()
     {
         if (_towers.Count <= 0)
         {
             _allTowersDestroyed = true;
             ObjectiveTextEvent.Invoke("All towers destroyed");
-            AreAllEnemiesKilled();
         }
         return _allTowersDestroyed;
     }
-    
-    private void AreAllEnemiesKilled()
-    {
-        if (CurrentEnemies.Count > 0)
-        {
-            ObjectiveTextEvent.Invoke("Defeat remaining enemies");
-        }
-        else ObjectiveTextEvent.Invoke("All enemies killed. You Win!");
-    }
-    
 }
