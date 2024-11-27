@@ -68,11 +68,11 @@ public class TowerDefenseEncounter : EncounterBase
     
     private void AreAllEnemiesKilled()
     {
-        if (CurrentEnemies.Count <= 0)
+        if (CurrentEnemies.Count > 0)
         {
-            ObjectiveTextEvent.Invoke("All enemies killed. You Win!");
+            ObjectiveTextEvent.Invoke("Defeat remaining enemies");
         }
-        else ObjectiveTextEvent.Invoke("Defeat remaining enemies");
+        else ObjectiveTextEvent.Invoke("All enemies killed. You Win!");
     }
     
 }
