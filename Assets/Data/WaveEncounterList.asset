@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c711e052f8d874bbc22a4a1c0c1a28, type: 3}
+  m_Name: WaveEncounterList
+  m_EditorClassIdentifier: 
+  <Waves>k__BackingField:
+  - <InitialDelay>k__BackingField: 1
+    <SpawnDelay>k__BackingField: 0.5
+    <EnemyPrefabs>k__BackingField:
+    - {fileID: 8084125410457013693, guid: 1386149d683dc6f4faca58ed5042b63e, type: 3}
+    - {fileID: 8084125410457013693, guid: 1386149d683dc6f4faca58ed5042b63e, type: 3}
+  - <InitialDelay>k__BackingField: 1
+    <SpawnDelay>k__BackingField: 0.5
+    <EnemyPrefabs>k__BackingField:
+    - {fileID: 8084125410457013693, guid: 1386149d683dc6f4faca58ed5042b63e, type: 3}
+    - {fileID: 8084125410457013693, guid: 1386149d683dc6f4faca58ed5042b63e, type: 3}
+    - {fileID: 8084125410457013693, guid: fe57c9396299e3a44bc6beec86ec0d2f, type: 3}
+  - <InitialDelay>k__BackingField: 1
+    <SpawnDelay>k__BackingField: 0.5
+    <EnemyPrefabs>k__BackingField:
+    - {fileID: 8084125410457013693, guid: 1386149d683dc6f4faca58ed5042b63e, type: 3}
+    - {fileID: 8084125410457013693, guid: 1386149d683dc6f4faca58ed5042b63e, type: 3}
+    - {fileID: 8084125410457013693, guid: 1386149d683dc6f4faca58ed5042b63e, type: 3}
+    - {fileID: 8084125410457013693, guid: fe57c9396299e3a44bc6beec86ec0d2f, type: 3}
+    - {fileID: 8084125410457013693, guid: fe57c9396299e3a44bc6beec86ec0d2f, type: 3}
